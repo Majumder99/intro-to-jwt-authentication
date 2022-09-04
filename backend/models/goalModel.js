@@ -2,6 +2,12 @@ const mongoose = require("mongoose");
 
 const goalSchema = mongoose.Schema(
   {
+    user: {
+      type: mongoose.Schema.Types.ObjectId,
+      required: true,
+      //Reference means who creates this. User will create this. user comes from UserSchema
+      ref: "User",
+    },
     //this text actually the key value
     text: {
       type: String,

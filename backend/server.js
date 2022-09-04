@@ -2,6 +2,7 @@ const express = require("express");
 //dotenv automatically loads environment variable from a .env file into the process .env object
 const dotenv = require("dotenv").config();
 const router = require("./routes/goalRoutes");
+const userRoute = require("./routes/userRoutes");
 const colors = require("colors");
 const { errorHandler } = require("./middleware/errorMiddleware");
 const connectDB = require("./config/db");
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/goals", router);
+app.use("/api/users", userRoute);
 
 app.use(errorHandler);
 app.listen(port, () => {
