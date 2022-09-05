@@ -17,7 +17,7 @@ const protect = asyncHandler(async (req, res, next) => {
 
       //Get user from the token
       //if we give name payload then we have to write decode.name. Its upto you
-      req.user = await User.findById(decoded.id).selectt("-password");
+      req.user = await User.findById(decoded.id).select("-password");
       next();
     } catch (e) {
       console.log(e);
